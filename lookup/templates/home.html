@@ -1,5 +1,33 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>Hello World!</h1>
+
+
+<br/>
+{{ api }}<br/><br/>
+
+{% if api %}
+	{% if api == "Error.." %}
+		Błąd
+	{% else %}
+		<div class="jumbotron {{ category_color }}">
+		  <h1 class="display-4">ID: {{ api.id }}</h1>
+		  <p class="lead">Polski indeks jakości powietrza: {{ api.stIndexLevel.indexLevelName }}</p>
+		  {% for item in category_loop%}
+		  	{{ item }}<br/>
+		  {% endfor%}
+
+		  <p>Informacje pochodzą z serwisu Jakość Powietrza http://powietrze.gios.gov.pl</p>
+		  
+
+		</div>	
+
+		
+		<!-- {% for key in api %}	
+			{{ key }}: {{ api.key.indexLevelName }}<br	/>
+
+		{% endfor %} -->
+	{% endif %}
+{% endif %}
+
 {% endblock %}
