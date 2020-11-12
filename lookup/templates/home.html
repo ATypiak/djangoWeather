@@ -4,7 +4,12 @@
 
 
 <br/>
-{{ api }}<br/><br/>
+{{ stations }}<br/><br/>
+
+
+{% if city %}
+	{{ city }}
+{% endif %}	
 
 {% if api %}
 	{% if api == "Error.." %}
